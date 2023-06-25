@@ -1,0 +1,652 @@
+{
+	"formatVersion": 4,
+	"modifications": [
+		{
+			"modification": "createEnum",
+			"enumName": "eventType",
+			"values": [
+				"race",
+				"training",
+				"trainingCamp"
+			]
+		},
+		{
+			"modification": "createEntity",
+			"entity": {
+				"name": "Event",
+				"unique": {},
+				"indexes": {},
+				"primary": "id",
+				"primaryColumn": "id",
+				"tableName": "event",
+				"eventLog": {
+					"enabled": true
+				},
+				"fields": {
+					"id": {
+						"name": "id",
+						"columnName": "id",
+						"type": "Uuid",
+						"columnType": "uuid",
+						"nullable": false
+					}
+				}
+			}
+		},
+		{
+			"modification": "createEntity",
+			"entity": {
+				"name": "ContentSynthetic",
+				"unique": {},
+				"indexes": {},
+				"primary": "id",
+				"primaryColumn": "id",
+				"tableName": "content_synthetic",
+				"eventLog": {
+					"enabled": true
+				},
+				"fields": {
+					"id": {
+						"name": "id",
+						"columnName": "id",
+						"type": "Uuid",
+						"columnType": "uuid",
+						"nullable": false
+					}
+				}
+			}
+		},
+		{
+			"modification": "createEntity",
+			"entity": {
+				"name": "ContentPartsSynthetic",
+				"unique": {},
+				"indexes": {},
+				"primary": "id",
+				"primaryColumn": "id",
+				"tableName": "content_parts_synthetic",
+				"eventLog": {
+					"enabled": true
+				},
+				"fields": {
+					"id": {
+						"name": "id",
+						"columnName": "id",
+						"type": "Uuid",
+						"columnType": "uuid",
+						"nullable": false
+					}
+				}
+			}
+		},
+		{
+			"modification": "createEntity",
+			"entity": {
+				"name": "ClubMember",
+				"unique": {},
+				"indexes": {},
+				"primary": "id",
+				"primaryColumn": "id",
+				"tableName": "club_member",
+				"eventLog": {
+					"enabled": true
+				},
+				"fields": {
+					"id": {
+						"name": "id",
+						"columnName": "id",
+						"type": "Uuid",
+						"columnType": "uuid",
+						"nullable": false
+					}
+				}
+			}
+		},
+		{
+			"modification": "createEntity",
+			"entity": {
+				"name": "EventRegistration",
+				"unique": {},
+				"indexes": {},
+				"primary": "id",
+				"primaryColumn": "id",
+				"tableName": "event_registration",
+				"eventLog": {
+					"enabled": true
+				},
+				"fields": {
+					"id": {
+						"name": "id",
+						"columnName": "id",
+						"type": "Uuid",
+						"columnType": "uuid",
+						"nullable": false
+					}
+				}
+			}
+		},
+		{
+			"modification": "createColumn",
+			"entityName": "Event",
+			"field": {
+				"name": "type",
+				"columnName": "type",
+				"type": "Enum",
+				"nullable": false,
+				"columnType": "eventType"
+			}
+		},
+		{
+			"modification": "createColumn",
+			"entityName": "Event",
+			"field": {
+				"name": "registrationClosed",
+				"columnName": "registration_closed",
+				"type": "Bool",
+				"nullable": false,
+				"columnType": "boolean",
+				"default": false
+			},
+			"fillValue": false
+		},
+		{
+			"modification": "createColumn",
+			"entityName": "Event",
+			"field": {
+				"name": "Name",
+				"columnName": "name",
+				"type": "String",
+				"nullable": true,
+				"columnType": "text"
+			}
+		},
+		{
+			"modification": "createColumn",
+			"entityName": "Event",
+			"field": {
+				"name": "Location",
+				"columnName": "location",
+				"type": "String",
+				"nullable": true,
+				"columnType": "text"
+			}
+		},
+		{
+			"modification": "createColumn",
+			"entityName": "ContentPartsSynthetic",
+			"field": {
+				"name": "order",
+				"columnName": "order",
+				"type": "Integer",
+				"nullable": false,
+				"columnType": "integer"
+			}
+		},
+		{
+			"modification": "createColumn",
+			"entityName": "ContentPartsSynthetic",
+			"field": {
+				"name": "json",
+				"columnName": "json",
+				"type": "String",
+				"nullable": false,
+				"columnType": "text"
+			}
+		},
+		{
+			"modification": "createColumn",
+			"entityName": "ClubMember",
+			"field": {
+				"name": "personId",
+				"columnName": "person_id",
+				"type": "Uuid",
+				"nullable": false,
+				"columnType": "uuid"
+			}
+		},
+		{
+			"modification": "createColumn",
+			"entityName": "ClubMember",
+			"field": {
+				"name": "name",
+				"columnName": "name",
+				"type": "String",
+				"nullable": false,
+				"columnType": "text"
+			}
+		},
+		{
+			"modification": "createColumn",
+			"entityName": "ClubMember",
+			"field": {
+				"name": "email",
+				"columnName": "email",
+				"type": "String",
+				"nullable": false,
+				"columnType": "text"
+			}
+		},
+		{
+			"modification": "createColumn",
+			"entityName": "ClubMember",
+			"field": {
+				"name": "phoneNumber",
+				"columnName": "phone_number",
+				"type": "String",
+				"nullable": true,
+				"columnType": "text"
+			}
+		},
+		{
+			"modification": "createColumn",
+			"entityName": "ClubMember",
+			"field": {
+				"name": "transportPreference",
+				"columnName": "transport_preference",
+				"type": "Bool",
+				"nullable": true,
+				"columnType": "boolean"
+			}
+		},
+		{
+			"modification": "createColumn",
+			"entityName": "EventRegistration",
+			"field": {
+				"name": "transportNeeded",
+				"columnName": "transport_needed",
+				"type": "Bool",
+				"nullable": false,
+				"columnType": "boolean"
+			}
+		},
+		{
+			"modification": "createRelation",
+			"entityName": "Event",
+			"owningSide": {
+				"type": "OneHasOne",
+				"name": "Description",
+				"target": "ContentSynthetic",
+				"nullable": true,
+				"orphanRemoval": true,
+				"joiningColumn": {
+					"columnName": "description_id",
+					"onDelete": "cascade"
+				}
+			}
+		},
+		{
+			"modification": "createRelation",
+			"entityName": "ContentPartsSynthetic",
+			"owningSide": {
+				"type": "ManyHasOne",
+				"name": "content",
+				"target": "ContentSynthetic",
+				"inversedBy": "parts",
+				"joiningColumn": {
+					"columnName": "content_id",
+					"onDelete": "cascade"
+				},
+				"nullable": false
+			},
+			"inverseSide": {
+				"type": "OneHasMany",
+				"name": "parts",
+				"target": "ContentPartsSynthetic",
+				"ownedBy": "content",
+				"orderBy": [
+					{
+						"path": [
+							"order"
+						],
+						"direction": "asc"
+					}
+				]
+			}
+		},
+		{
+			"modification": "createRelation",
+			"entityName": "EventRegistration",
+			"owningSide": {
+				"type": "ManyHasOne",
+				"name": "event",
+				"target": "Event",
+				"inversedBy": "registrations",
+				"joiningColumn": {
+					"columnName": "event_id",
+					"onDelete": "restrict"
+				},
+				"nullable": false
+			},
+			"inverseSide": {
+				"type": "OneHasMany",
+				"name": "registrations",
+				"target": "EventRegistration",
+				"ownedBy": "event"
+			}
+		},
+		{
+			"modification": "createRelation",
+			"entityName": "EventRegistration",
+			"owningSide": {
+				"type": "ManyHasOne",
+				"name": "clubMember",
+				"target": "ClubMember",
+				"inversedBy": "registrations",
+				"joiningColumn": {
+					"columnName": "club_member_id",
+					"onDelete": "restrict"
+				},
+				"nullable": false
+			},
+			"inverseSide": {
+				"type": "OneHasMany",
+				"name": "registrations",
+				"target": "EventRegistration",
+				"ownedBy": "clubMember"
+			}
+		},
+		{
+			"modification": "createUniqueConstraint",
+			"entityName": "ClubMember",
+			"unique": {
+				"name": "unique_ClubMember_personId_0fa8fe",
+				"fields": [
+					"personId"
+				]
+			}
+		},
+		{
+			"modification": "createUniqueConstraint",
+			"entityName": "ClubMember",
+			"unique": {
+				"name": "unique_ClubMember_email_98a11f",
+				"fields": [
+					"email"
+				]
+			}
+		},
+		{
+			"modification": "patchAclSchema",
+			"patch": [
+				{
+					"op": "add",
+					"path": "/roles/trainer",
+					"value": {
+						"variables": {
+							"personId": {
+								"type": "predefined",
+								"value": "personID"
+							}
+						},
+						"stages": "*",
+						"entities": {
+							"Event": {
+								"predicates": {},
+								"operations": {
+									"read": {
+										"type": true,
+										"registrationClosed": true,
+										"Name": true,
+										"Location": true,
+										"Description": true,
+										"registrations": true
+									},
+									"edit": {
+										"type": true,
+										"registrationClosed": true,
+										"Name": true,
+										"Location": true,
+										"Description": true,
+										"registrations": true
+									},
+									"create": {
+										"type": true,
+										"registrationClosed": true,
+										"Name": true,
+										"Location": true,
+										"Description": true,
+										"registrations": true
+									}
+								}
+							},
+							"ClubMember": {
+								"predicates": {},
+								"operations": {
+									"read": {
+										"personId": true,
+										"name": true,
+										"email": true,
+										"phoneNumber": true,
+										"transportPreference": true,
+										"registrations": true
+									}
+								}
+							},
+							"EventRegistration": {
+								"predicates": {},
+								"operations": {
+									"read": {
+										"event": true,
+										"clubMember": true,
+										"transportNeeded": true
+									}
+								}
+							},
+							"ContentSynthetic": {
+								"predicates": {},
+								"operations": [
+									[
+										"read",
+										{
+											"parts": true
+										}
+									],
+									[
+										"edit",
+										{
+											"parts": true
+										}
+									],
+									[
+										"create",
+										{
+											"parts": true
+										}
+									],
+									[
+										"delete",
+										true
+									]
+								]
+							},
+							"ContentPartsSynthetic": {
+								"predicates": {},
+								"operations": [
+									[
+										"read",
+										{
+											"order": true,
+											"content": true,
+											"json": true
+										}
+									],
+									[
+										"edit",
+										{
+											"order": true,
+											"content": true,
+											"json": true
+										}
+									],
+									[
+										"create",
+										{
+											"order": true,
+											"content": true,
+											"json": true
+										}
+									],
+									[
+										"delete",
+										true
+									]
+								]
+							}
+						},
+						"s3": {
+							"**": {
+								"upload": true,
+								"read": true
+							}
+						}
+					}
+				},
+				{
+					"op": "add",
+					"path": "/roles/clubMember",
+					"value": {
+						"variables": {
+							"personId": {
+								"type": "predefined",
+								"value": "personID"
+							}
+						},
+						"stages": "*",
+						"entities": {
+							"Event": {
+								"predicates": {},
+								"operations": {
+									"read": {
+										"type": true,
+										"registrationClosed": true,
+										"Name": true,
+										"Location": true,
+										"Description": true,
+										"registrations": true
+									}
+								}
+							},
+							"ClubMember": {
+								"predicates": {
+									"when": {
+										"personId": "personId"
+									}
+								},
+								"operations": {
+									"read": {
+										"personId": "when",
+										"name": "when",
+										"email": "when",
+										"phoneNumber": "when",
+										"transportPreference": "when",
+										"registrations": "when"
+									},
+									"edit": {
+										"personId": "when",
+										"name": "when",
+										"email": "when",
+										"phoneNumber": "when",
+										"transportPreference": "when",
+										"registrations": "when"
+									}
+								}
+							},
+							"EventRegistration": {
+								"predicates": {
+									"when": {
+										"clubMember": {
+											"personId": "personId"
+										}
+									}
+								},
+								"operations": {
+									"read": {
+										"event": "when",
+										"clubMember": "when",
+										"transportNeeded": "when"
+									},
+									"edit": {
+										"event": "when",
+										"clubMember": "when",
+										"transportNeeded": "when"
+									},
+									"create": {
+										"event": "when",
+										"clubMember": "when",
+										"transportNeeded": "when"
+									}
+								}
+							},
+							"ContentSynthetic": {
+								"predicates": {},
+								"operations": [
+									[
+										"read",
+										{
+											"parts": true
+										}
+									],
+									[
+										"edit",
+										{
+											"parts": true
+										}
+									],
+									[
+										"create",
+										{
+											"parts": true
+										}
+									],
+									[
+										"delete",
+										true
+									]
+								]
+							},
+							"ContentPartsSynthetic": {
+								"predicates": {},
+								"operations": [
+									[
+										"read",
+										{
+											"order": true,
+											"content": true,
+											"json": true
+										}
+									],
+									[
+										"edit",
+										{
+											"order": true,
+											"content": true,
+											"json": true
+										}
+									],
+									[
+										"create",
+										{
+											"order": true,
+											"content": true,
+											"json": true
+										}
+									],
+									[
+										"delete",
+										true
+									]
+								]
+							}
+						},
+						"s3": {
+							"**": {
+								"upload": true,
+								"read": true
+							}
+						}
+					}
+				}
+			]
+		}
+	]
+}
