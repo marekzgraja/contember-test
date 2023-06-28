@@ -5,8 +5,10 @@ import {
   DeleteEntityButton,
   DetailScope,
   DisplayTextField,
+  FieldView,
   GenericCell,
   HasOneSelectCell,
+  Label,
   Link,
   LinkButton,
   NavigateBackLink,
@@ -30,38 +32,44 @@ export default () => (
       </Slots.Actions>
       <Slots.ContentStack>
         <Stack direction="vertical" gap="xlarge">
-          <Stack direction="vertical">
-            <DisplayTextField field="name" label="name" />
-            <DisplayTextField field="email" label="email" />
-            <DisplayTextField field="phoneNumber" label="phoneNumber" />
-          </Stack>
+          <div>
+            <div className="grid gap-2 md:gap-4 md:grid-cols-2 mb-8">
+              <DisplayTextField field="name" label="Name" />
+              <DisplayTextField field="id" label="ID" />
+            </div>
+            <div className="mb-2">Contact</div>
+            <div className="grid gap-2 md:gap-4 md:grid-cols-2">
+              <DisplayTextField field="email" label="Email" />
+              <DisplayTextField field="phoneNumber" label="Phone number" />
+            </div>
+          </div>
           <>
             <Stack direction="horizontal" justify="space-between">
-              <h2 className="text-xl mt-4">EventRegistration</h2>
+              <h2 className="text-xl mt-4">Event Registration</h2>
             </Stack>
             <DataGrid entities="EventRegistration[clubMember.id=$id]">
-              <GenericCell shrunk canBeHidden={false}>
-                <Link to="admin/eventRegistration/detail(id: $entity.id)">
-                  Open detail
-                </Link>
-              </GenericCell>
               <HasOneSelectCell
                 field="event"
-                header="event"
-                options="Event.id"
+                header="Event name"
+                options="Event.Name"
               />
               <HasOneSelectCell
                 field="clubMember"
-                header="clubMember"
+                header="Club member"
                 options="ClubMember.name"
               />
               <BooleanCell
                 key="transportNeeded"
                 field="transportNeeded"
-                header="transportNeeded"
+                header="Needs transport?"
               />
               <GenericCell shrunk canBeHidden={false}>
                 <DeleteEntityButton immediatePersist />
+              </GenericCell>
+              <GenericCell shrunk canBeHidden={false}>
+                <Link to="admin/eventRegistration/detail(id: $entity.id)">
+                  Open detail
+                </Link>
               </GenericCell>
             </DataGrid>
           </>

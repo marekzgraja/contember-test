@@ -37,6 +37,7 @@ export const personIdClubMemberVariable = acl.createPredefinedVariable(
   [clubMemberRole]
 );
 
+export const TransportOptions = def.createEnum("need_ride", "car");
 export const eventType = def.createEnum("race", "training", "trainingCamp");
 
 @acl.allow(trainerRole, { read: true, create: true })
@@ -78,7 +79,7 @@ export class ClubMember {
   name = def.stringColumn().notNull();
   email = def.stringColumn().notNull();
   phoneNumber = def.stringColumn();
-  transportPreference = def.boolColumn();
+  transportPreference = def.enumColumn(TransportOptions).default("need_ride");
   registrations = def.oneHasMany(EventRegistration, "clubMember");
 }
 

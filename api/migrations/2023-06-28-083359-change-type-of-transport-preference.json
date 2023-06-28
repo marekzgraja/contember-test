@@ -1,0 +1,175 @@
+{
+	"formatVersion": 3,
+	"modifications": [
+		{
+			"modification": "createEnum",
+			"enumName": "TransportOptions",
+			"values": [
+				"need_ride",
+				"car"
+			]
+		},
+		{
+			"modification": "updateColumnDefinition",
+			"entityName": "ClubMember",
+			"fieldName": "transportPreference",
+			"definition": {
+				"columnType": "TransportOptions",
+				"nullable": true,
+				"type": "Enum",
+				"default": "need_ride"
+			}
+		},
+		{
+			"modification": "patchAclSchema",
+			"patch": [
+				{
+					"op": "add",
+					"path": "/roles/trainer/tenant",
+					"value": {}
+				},
+				{
+					"op": "remove",
+					"path": "/roles/trainer/variables/personId"
+				},
+				{
+					"op": "add",
+					"path": "/roles/trainer/variables/personIdTrainerVariable",
+					"value": {
+						"type": "predefined",
+						"value": "personID"
+					}
+				},
+				{
+					"op": "remove",
+					"path": "/roles/trainer/entities/ContentSynthetic"
+				},
+				{
+					"op": "remove",
+					"path": "/roles/trainer/entities/ContentPartsSynthetic"
+				},
+				{
+					"op": "remove",
+					"path": "/roles/trainer/entities/Event/operations/edit"
+				},
+				{
+					"op": "add",
+					"path": "/roles/clubMember/tenant",
+					"value": {}
+				},
+				{
+					"op": "remove",
+					"path": "/roles/clubMember/variables/personId"
+				},
+				{
+					"op": "add",
+					"path": "/roles/clubMember/variables/personIdClubMemberVariable",
+					"value": {
+						"type": "predefined",
+						"value": "personID"
+					}
+				},
+				{
+					"op": "remove",
+					"path": "/roles/clubMember/entities/ContentSynthetic"
+				},
+				{
+					"op": "remove",
+					"path": "/roles/clubMember/entities/ContentPartsSynthetic"
+				},
+				{
+					"op": "remove",
+					"path": "/roles/clubMember/entities/ClubMember/predicates/when"
+				},
+				{
+					"op": "add",
+					"path": "/roles/clubMember/entities/ClubMember/predicates/personId_personIdClubMemberVa",
+					"value": {
+						"personId": "personIdClubMemberVariable"
+					}
+				},
+				{
+					"op": "remove",
+					"path": "/roles/clubMember/entities/ClubMember/operations/edit"
+				},
+				{
+					"op": "replace",
+					"path": "/roles/clubMember/entities/ClubMember/operations/read/personId",
+					"value": "personId_personIdClubMemberVa"
+				},
+				{
+					"op": "replace",
+					"path": "/roles/clubMember/entities/ClubMember/operations/read/name",
+					"value": "personId_personIdClubMemberVa"
+				},
+				{
+					"op": "replace",
+					"path": "/roles/clubMember/entities/ClubMember/operations/read/email",
+					"value": "personId_personIdClubMemberVa"
+				},
+				{
+					"op": "replace",
+					"path": "/roles/clubMember/entities/ClubMember/operations/read/phoneNumber",
+					"value": "personId_personIdClubMemberVa"
+				},
+				{
+					"op": "replace",
+					"path": "/roles/clubMember/entities/ClubMember/operations/read/transportPreference",
+					"value": "personId_personIdClubMemberVa"
+				},
+				{
+					"op": "replace",
+					"path": "/roles/clubMember/entities/ClubMember/operations/read/registrations",
+					"value": "personId_personIdClubMemberVa"
+				},
+				{
+					"op": "remove",
+					"path": "/roles/clubMember/entities/EventRegistration/predicates/when"
+				},
+				{
+					"op": "add",
+					"path": "/roles/clubMember/entities/EventRegistration/predicates/clubMember_personId_personIdC",
+					"value": {
+						"clubMember": {
+							"personId": "personIdClubMemberVariable"
+						}
+					}
+				},
+				{
+					"op": "remove",
+					"path": "/roles/clubMember/entities/EventRegistration/operations/edit"
+				},
+				{
+					"op": "replace",
+					"path": "/roles/clubMember/entities/EventRegistration/operations/read/event",
+					"value": "clubMember_personId_personIdC"
+				},
+				{
+					"op": "replace",
+					"path": "/roles/clubMember/entities/EventRegistration/operations/read/clubMember",
+					"value": "clubMember_personId_personIdC"
+				},
+				{
+					"op": "replace",
+					"path": "/roles/clubMember/entities/EventRegistration/operations/read/transportNeeded",
+					"value": "clubMember_personId_personIdC"
+				},
+				{
+					"op": "replace",
+					"path": "/roles/clubMember/entities/EventRegistration/operations/create/event",
+					"value": "clubMember_personId_personIdC"
+				},
+				{
+					"op": "replace",
+					"path": "/roles/clubMember/entities/EventRegistration/operations/create/clubMember",
+					"value": "clubMember_personId_personIdC"
+				},
+				{
+					"op": "replace",
+					"path": "/roles/clubMember/entities/EventRegistration/operations/create/transportNeeded",
+					"value": "clubMember_personId_personIdC"
+				}
+			]
+		}
+	]
+}
